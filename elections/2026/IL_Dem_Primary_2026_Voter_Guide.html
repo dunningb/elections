@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IL Democratic Primary 2026 — Voter Guide</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f6f9; color: #1a1a2e; }
+  .header { background: linear-gradient(135deg, #1a3a6e 0%, #2563c4 100%); color: white; padding: 28px 32px; }
+  .header h1 { font-size: 1.5rem; font-weight: 700; }
+  .header p { font-size: 0.88rem; opacity: 0.85; margin-top: 5px; }
+  .nav { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 20px; background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 10; }
+  .nav-btn { padding: 6px 14px; border-radius: 20px; border: 1.5px solid #cbd5e1; background: white; color: #475569; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+  .nav-btn:hover { background: #eff6ff; border-color: #2563c4; color: #2563c4; }
+  .nav-btn.active { background: #2563c4; border-color: #2563c4; color: white; }
+  .content { padding: 20px; max-width: 1100px; margin: 0 auto; }
+  .race-section { display: none; }
+  .race-section.active { display: block; }
+  .race-title { font-size: 1.15rem; font-weight: 700; color: #1a3a6e; margin-bottom: 4px; }
+  .race-desc { font-size: 0.83rem; color: #64748b; margin-bottom: 16px; }
+  .candidates-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+  .card { background: white; border-radius: 12px; border: 1.5px solid #e2e8f0; overflow: hidden; }
+  .card-header { padding: 14px 16px 10px; border-bottom: 1px solid #f1f5f9; }
+  .card-name { font-size: 1rem; font-weight: 700; color: #0f172a; }
+  .card-role { font-size: 0.78rem; color: #64748b; margin-top: 2px; }
+  .badge { display: inline-block; font-size: 0.7rem; font-weight: 600; border-radius: 4px; padding: 1px 6px; margin-left: 6px; }
+  .badge-inc { background: #dcfce7; color: #166534; }
+  .badge-chal { background: #fef9c3; color: #854d0e; }
+  .card-body { padding: 12px 16px; }
+  .card-body p { font-size: 0.82rem; color: #374151; line-height: 1.6; margin-bottom: 8px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .tag { border-radius: 4px; padding: 2px 8px; font-size: 0.73rem; font-weight: 500; }
+  .tag-blue { background: #eff6ff; color: #1d4ed8; }
+  .tag-green { background: #f0fdf4; color: #15803d; }
+  .tag-red { background: #fff1f2; color: #be123c; }
+  .tag-purple { background: #faf5ff; color: #7e22ce; }
+  .tag-orange { background: #fff7ed; color: #c2410c; }
+  .card-footer { padding: 10px 16px; background: #f8fafc; border-top: 1px solid #f1f5f9; }
+  .card-footer a { font-size: 0.78rem; color: #2563c4; text-decoration: none; font-weight: 500; }
+  .card-footer a:hover { text-decoration: underline; }
+  .card-footer span { font-size: 0.78rem; color: #94a3b8; font-style: italic; }
+  .note { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; font-size: 0.82rem; color: #92400e; }
+  table.compare { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 16px; }
+  table.compare th { background: #1a3a6e; color: white; padding: 10px 14px; text-align: left; font-weight: 600; }
+  table.compare td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+  table.compare tr:nth-child(even) td { background: #f8fafc; }
+  @media (max-width: 600px) { .candidates-grid { grid-template-columns: 1fr; } table.compare { display: block; overflow-x: auto; } .header { padding: 18px 14px; } }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🗳 Illinois Democratic Primary — March 17, 2026</h1>
+  <p>Northfield Township · Cook County Specimen Ballot · Candidate Comparison Guide</p>
+</div>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="showSection('senate')">U.S. Senate</button>
+  <button class="nav-btn" onclick="showSection('governor')">Governor</button>
+  <button class="nav-btn" onclick="showSection('statewide')">Statewide Offices</button>
+  <button class="nav-btn" onclick="showSection('comptroller')">Comptroller</button>
+  <button class="nav-btn" onclick="showSection('congress')">U.S. House 10th</button>
+  <button class="nav-btn" onclick="showSection('countyboard')">County Board Pres.</button>
+  <button class="nav-btn" onclick="showSection('assessor')">County Assessor</button>
+  <button class="nav-btn" onclick="showSection('other')">Other Races</button>
+</div>
+
+<div class="content">
+
+<!-- SENATE -->
+<div id="senate" class="race-section active">
+  <div class="race-title">United States Senator</div>
+  <div class="race-desc">Open seat — replacing retiring Sen. Dick Durbin. 10 Democrats on the primary ballot. Three frontrunners dominate polling and fundraising. Winner is heavily favored in November in deep-blue Illinois.</div>
+  <div class="note">⚠️ March polling: Krishnamoorthi ~35–39%, Stratton ~28–38%, Kelly ~12–18%. The remaining 7 candidates are polling at 3% combined or less.</div>
+  <div class="candidates-grid">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Raja Krishnamoorthi <span class="badge badge-inc">FRONTRUNNER</span></div>
+        <div class="card-role">U.S. Rep., IL-8 (Schaumburg) · 5 terms</div>
+      </div>
+      <div class="card-body">
+        <p>Led in polling and fundraising throughout the race, raising $30+ million. Known for House Oversight work and as a China hawk on the select committee on U.S.-China competition. Background in engineering, law, and small business.</p>
+        <p><strong>Immigration:</strong> Wants to "abolish Trump's ICE" and revamp DHS/CBP. Under fire for donations from Palantir's CTO (an ICE contractor); campaign donated equivalent amount to charity.</p>
+        <p><strong>Healthcare:</strong> Expand Medicaid and a public option. Not Medicare for All. Opposes GOP Medicaid cuts.</p>
+        <p><strong>Economy:</strong> "American Dream" platform — homeowner tax credit, free school lunches, raise federal minimum wage.</p>
+        <p><strong>Key endorsements:</strong> Local suburban officials; AIPAC endorsed in prior congressional races.</p>
+        <div class="tags">
+          <span class="tag tag-blue">Moderate-progressive</span>
+          <span class="tag tag-green">Top fundraiser $30M+</span>
+          <span class="tag tag-blue">Public option</span>
+          <span class="tag tag-blue">Reform ICE</span>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.krishnamoorthi.com" target="_blank">🔗 krishnamoorthi.com</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Juliana Stratton</div>
+        <div class="card-role">Illinois Lt. Governor (Chicago) · 2 terms</div>
+      </div>
+      <div class="card-body">
+        <p>First to enter the race. Gained momentum in final weeks, closing the gap with Krishnamoorthi. Backed heavily by Gov. Pritzker and Sen. Duckworth. Positioned as the most progressive of the top three.</p>
+        <p><strong>Immigration:</strong> The <em>only</em> top-3 candidate calling to <strong>abolish ICE</strong> outright. Attacked Krishnamoorthi repeatedly for donor ties to ICE contractors.</p>
+        <p><strong>Healthcare:</strong> Supports stronger public coverage options; opposes for-profit healthcare structures.</p>
+        <p><strong>Key endorsements:</strong> Gov. JB Pritzker, Sen. Tammy Duckworth, suburban House Democrats, Sen. Elizabeth Warren (rallied for her).</p>
+        <div class="tags">
+          <span class="tag tag-purple">Progressive</span>
+          <span class="tag tag-green">Pritzker + Duckworth endorsed</span>
+          <span class="tag tag-red">Abolish ICE</span>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.julianastratton.com" target="_blank">🔗 julianastratton.com</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Robin Kelly</div>
+        <div class="card-role">U.S. Rep., IL-2 (Lynwood) · 7 terms</div>
+      </div>
+      <div class="card-body">
+        <p>Seven-term congresswoman; former IL Democratic Party chair. Running on "People Over Profits" — casting herself as the experienced, policy-focused alternative to the Krishnamoorthi-Stratton clash.</p>
+        <p><strong>Immigration:</strong> Wants to "dismantle" ICE. The most progressive on Gaza: only candidate to sign the Block the Bombs bill, call situation a genocide, and pledge no AIPAC money.</p>
+        <p><strong>Key endorsements:</strong> Congressional Black Caucus, gun violence prevention orgs, LGBTQ+ groups.</p>
+        <div class="tags">
+          <span class="tag tag-purple">Progressive</span>
+          <span class="tag tag-red">Anti-AIPAC pledge</span>
+          <span class="tag tag-blue">Dismantle ICE</span>
+          <span class="tag tag-orange">Trailing in polls</span>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.robinkelly.com" target="_blank">🔗 robinkelly.com</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Other 7 Senate Candidates</div>
+        <div class="card-role">All polling under 2%</div>
+      </div>
+      <div class="card-body">
+        <p><strong>Steve Botsford Jr.</strong> – NW suburbs, Notre Dame grad, grassroots<br>
+        <strong>Bryan Maxwell</strong> – anti-oligarchy, anti-dark money<br>
+        <strong>Jonathan Dean</strong> – affordability, "fresh voice"<br>
+        <strong>Sean Brown</strong> – community-focused<br>
+        <strong>Awisi A. Bustos</strong> – working-class advocate<br>
+        <strong>Christopher Swann</strong> – left-libertarian, healthcare as human right<br>
+        <strong>Kevin Ryan</strong> – proper IL representation</p>
+        <div class="tags"><span class="tag tag-orange">Under 2% polling</span></div>
+      </div>
+      <div class="card-footer"><span>See WTTW voter guide for individual sites</span></div>
+    </div>
+  </div>
+
+  <table class="compare">
+    <tr><th>Issue</th><th>Krishnamoorthi</th><th>Stratton</th><th>Kelly</th></tr>
+    <tr><td>ICE / Immigration</td><td>Abolish "Trump's ICE"; reform DHS/CBP</td><td>Abolish ICE entirely</td><td>Dismantle ICE</td></tr>
+    <tr><td>Healthcare</td><td>Medicaid expansion + public option</td><td>Stronger public coverage; anti-for-profit</td><td>Medicare for All (supported)</td></tr>
+    <tr><td>Gaza / Israel</td><td>Declined to call it genocide; no weapon stop commitment</td><td>Declined to call it genocide; no weapon stop</td><td>Called it genocide; signed Block the Bombs bill; pledged no AIPAC $$</td></tr>
+    <tr><td>Min. wage</td><td>Raise federal min. wage (co-sponsored Sanders bill)</td><td>Higher than $17/hr floor</td><td>Raise federal min. wage (supports Sanders bill)</td></tr>
+    <tr><td>Fundraising</td><td>$30.4M raised; crypto PAC and some MAGA donors</td><td>$4M raised; Pritzker-backed PAC</td><td>$3.3M; no AIPAC money</td></tr>
+    <tr><td>Political identity</td><td>Moderate-progressive; business-friendly</td><td>Progressive; anti-establishment</td><td>Progressive; policy-focused</td></tr>
+  </table>
+</div>
+
+<!-- GOVERNOR -->
+<div id="governor" class="race-section">
+  <div class="race-title">Governor &amp; Lieutenant Governor</div>
+  <div class="race-desc">JB Pritzker is running unopposed in the Democratic primary for a historic third term. No primary comparison needed.</div>
+  <div class="candidates-grid">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">JB Pritzker &amp; Christian Mitchell <span class="badge badge-inc">INCUMBENT — UNOPPOSED</span></div>
+        <div class="card-role">Governor of Illinois (2019–present)</div>
+      </div>
+      <div class="card-body">
+        <p>Seeking an unprecedented third Democratic gubernatorial term. Running alongside Lt. Gov. nominee Christian Mitchell. Heavily involved in the U.S. Senate race — he endorsed and bankrolled Juliana Stratton. Frequently mentioned as a potential 2028 presidential candidate.</p>
+        <div class="tags"><span class="tag tag-green">Unopposed primary</span></div>
+      </div>
+      <div class="card-footer"><a href="https://www.pritzker.com" target="_blank">🔗 pritzker.com</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- STATEWIDE -->
+<div id="statewide" class="race-section">
+  <div class="race-title">Statewide Offices — Uncontested Democrats</div>
+  <div class="race-desc">These officeholders are running unopposed in the Democratic primary.</div>
+  <div class="candidates-grid">
+    <div class="card">
+      <div class="card-header"><div class="card-name">Kwame Raoul <span class="badge badge-inc">INCUMBENT</span></div><div class="card-role">Attorney General — Unopposed</div></div>
+      <div class="card-body"><p>Serving since 2019. Has actively challenged Trump administration policies in court, including immigration enforcement in Illinois.</p><div class="tags"><span class="tag tag-green">Unopposed</span></div></div>
+      <div class="card-footer"><a href="https://www.kwameraoul.com" target="_blank">🔗 kwameraoul.com</a></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-name">Alexi Giannoulias <span class="badge badge-inc">INCUMBENT</span></div><div class="card-role">Secretary of State — Unopposed</div></div>
+      <div class="card-body"><p>Serving since 2023. Previously IL State Treasurer 2007–2011 and 2010 Democratic U.S. Senate nominee.</p><div class="tags"><span class="tag tag-green">Unopposed</span></div></div>
+      <div class="card-footer"><a href="https://www.alexiforillinois.com" target="_blank">🔗 alexiforillinois.com</a></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-name">Michael W. Frerichs <span class="badge badge-inc">INCUMBENT</span></div><div class="card-role">Treasurer — Unopposed</div></div>
+      <div class="card-body"><p>Serving since 2015. Seeking reelection as State Treasurer. Unopposed in the Democratic primary.</p><div class="tags"><span class="tag tag-green">Unopposed</span></div></div>
+      <div class="card-footer"><a href="https://www.illinoistreasurer.gov" target="_blank">🔗 illinoistreasurer.gov</a></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-name">Julie A. Morrison <span class="badge badge-inc">INCUMBENT</span></div><div class="card-role">State Senator, 29th District — Unopposed</div></div>
+      <div class="card-body"><p>State Senator for Illinois' 29th District. Unopposed in the primary.</p><div class="tags"><span class="tag tag-green">Unopposed</span></div></div>
+      <div class="card-footer"><a href="https://www.juliemorrison.com" target="_blank">🔗 juliemorrison.com</a></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-name">Bob Morgan <span class="badge badge-inc">INCUMBENT</span></div><div class="card-role">State Rep., 58th District — Unopposed</div></div>
+      <div class="card-body"><p>State Representative for IL-58 (northern suburbs). Unopposed in the Democratic primary.</p><div class="tags"><span class="tag tag-green">Unopposed</span></div></div>
+      <div class="card-footer"><a href="https://www.bobmorganforillinois.com" target="_blank">🔗 bobmorganforillinois.com</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPTROLLER -->
+<div id="comptroller" class="race-section">
+  <div class="race-title">Illinois Comptroller</div>
+  <div class="race-desc">Open seat — outgoing incumbent Susana Mendoza is not seeking reelection after 9 years. The comptroller is the state's chief financial officer, managing accounts, paying bills, and overseeing state pension funds.</div>
+  <div class="candidates-grid">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Margaret Croke <span class="badge badge-inc">ESTABLISHMENT FAVORITE</span></div>
+        <div class="card-role">State Rep., IL-12 (Chicago, Lincoln Park) · age 33</div>
+      </div>
+      <div class="card-body">
+        <p>Elected to state House in 2020. Largest fundraising haul (~$1.8M). Backed by the party's top officials. Focus on modernizing the office's computer systems for greater spending transparency. Open to refinancing state pension debt. Moderate Democrat.</p>
+        <div class="tags">
+          <span class="tag tag-green">Pritzker + Speaker Welch endorsed</span>
+          <span class="tag tag-green">Cook Co. Dems endorsed</span>
+          <span class="tag tag-blue">Tech modernization</span>
+          <span class="tag tag-blue">Moderate</span>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.crokeforillinois.com" target="_blank">🔗 crokeforillinois.com</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Stephanie A. Kifowit</div>
+        <div class="card-role">State Rep., IL-84 (Oswego) · Marine veteran · age 54</div>
+      </div>
+      <div class="card-body">
+        <p>Longest-tenured legislator in the race (statehouse since 2013). Former financial advisor and Marine Corps veteran (1990–1994). Leans on fiscal expertise through the state's budget impasse era. Would focus on prevailing wage protections and cutting corporate-benefit spending.</p>
+        <div class="tags">
+          <span class="tag tag-blue">Labor-backed</span>
+          <span class="tag tag-blue">Marine veteran</span>
+          <span class="tag tag-blue">Financial advisor background</span>
+          <span class="tag tag-blue">Moderate</span>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.kifowit.com" target="_blank">🔗 kifowit.com</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Holly Kim</div>
+        <div class="card-role">Lake County Treasurer (Mundelein) · age 45</div>
+      </div>
+      <div class="card-body">
+        <p>Endorsed by outgoing Comptroller Mendoza: "already doing the job." Progressive vision; won votes in historically conservative Lake County areas. Wants to improve state's credit rating and supports a progressive state income tax. Backed by Rep. Schneider.</p>
+        <div class="tags">
+          <span class="tag tag-purple">Progressive</span>
+          <span class="tag tag-green">Mendoza-endorsed</span>
+          <span class="tag tag-blue">Treasurer experience</span>
+          <span class="tag tag-blue">Credit rating focus</span>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.voteforhollykim.com" target="_blank">🔗 voteforhollykim.com</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Karina Villa</div>
+        <div class="card-role">State Senator, IL-25 (West Chicago) · age 47</div>
+      </div>
+      <div class="card-body">
+        <p>Former school social worker. Views budgets as "moral documents." Raised ~$1.4M. Supports digital advertising tax and revisiting a graduated income tax. Focus on human services and income equality. Endorsed by Senate President Don Harmon and the Chicago Teachers Union.</p>
+        <div class="tags">
+          <span class="tag tag-purple">Progressive</span>
+          <span class="tag tag-green">CTU + Senate Pres. Harmon endorsed</span>
+          <span class="tag tag-purple">Graduated income tax</span>
+          <span class="tag tag-purple">Human services</span>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.karinavilla.com" target="_blank">🔗 karinavilla.com</a></div>
+    </div>
+  </div>
+
+  <table class="compare">
+    <tr><th>Issue</th><th>Croke</th><th>Kifowit</th><th>Kim</th><th>Villa</th></tr>
+    <tr><td>Core message</td><td>Modernize &amp; transparency</td><td>Experience &amp; fiscal discipline</td><td>"Already doing the job"</td><td>Budgets are moral documents</td></tr>
+    <tr><td>Pension approach</td><td>Open to refinancing</td><td>Cut corporate-benefit spending</td><td>Improve credit rating first</td><td>New revenue via taxes</td></tr>
+    <tr><td>Income tax</td><td>Not emphasized</td><td>Open to graduated tax</td><td>Supports progressive tax</td><td>Strongly supports graduated tax</td></tr>
+    <tr><td>Merge comptroller/treasurer?</td><td>Oppose</td><td>Open if safeguards</td><td>Oppose</td><td>Oppose</td></tr>
+    <tr><td>Key endorsements</td><td>Pritzker, Speaker Welch, Cook Co. Dems</td><td>Labor unions, veterans groups</td><td>Outgoing Comptroller Mendoza, Rep. Schneider</td><td>Senate Pres. Harmon, Chicago Teachers Union</td></tr>
+    <tr><td>Fundraising</td><td>~$1.8M (largest)</td><td>~$400K+</td><td>~$400K+</td><td>~$1.4M</td></tr>
+  </table>
+</div>
+
+<!-- CONGRESS -->
+<div id="congress" class="race-section">
+  <div class="race-title">U.S. Representative, 10th Congressional District</div>
+  <div class="race-desc">North suburban district covering Lake and Cook counties (Highland Park, Northbrook, Wheeling, Glenview, Northfield, etc.). Six-term incumbent faces a progressive challenger from the left.</div>
+  <div class="candidates-grid">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Brad Schneider <span class="badge badge-inc">INCUMBENT</span></div>
+        <div class="card-role">U.S. Rep., IL-10 (Highland Park) · 6 terms · age 64</div>
+      </div>
+      <div class="card-body">
+        <p>Northwestern/Kellogg MBA. Senior member of House Ways &amp; Means Committee; chairs the 110-member New Democrat Coalition. First elected 2012. Background in business consulting.</p>
+        <p><strong>Immigration:</strong> Reform ICE with strict new standards — body cameras, mandatory ID display, no masks during arrests, use-of-force standards. Opposed abolishing agency; pushed for impeachment inquiry of DHS Sec. Noem.</p>
+        <p><strong>Healthcare:</strong> Defend and expand ACA; opposes for-profit barriers to access. Not Medicare for All.</p>
+        <p><strong>Iran:</strong> Voted for (unsuccessful) resolution to end military operation; opposed continued funding.</p>
+        <p><strong>Endorsed by:</strong> Gov. Pritzker, Sen. Duckworth, Chicago Tribune editorial board.</p>
+        <div class="tags">
+          <span class="tag tag-blue">Moderate</span>
+          <span class="tag tag-blue">Reform ICE</span>
+          <span class="tag tag-blue">ACA defender</span>
+          <span class="tag tag-green">Pritzker + Duckworth endorsed</span>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.schneiderforcongress.com" target="_blank">🔗 schneiderforcongress.com</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Morgan Coghill <span class="badge badge-chal">CHALLENGER</span></div>
+        <div class="card-role">Small business owner (timber importer) · Mundelein · age 46</div>
+      </div>
+      <div class="card-body">
+        <p>Political newcomer; grew up in poverty. Running as an "unbought progressive populist." Grassroots-only campaign: no AIPAC, pharma, insurance, or PAC money.</p>
+        <p><strong>Immigration:</strong> Abolish ICE outright; triple immigration judges for fair hearings.</p>
+        <p><strong>Healthcare:</strong> Medicare for All, funded by a 2% wealth tax on net worth over $15M. "For-profit healthcare should go extinct."</p>
+        <p><strong>Iran:</strong> End war immediately; calls it "illegal use of force." End all military aid to Israel.</p>
+        <div class="tags">
+          <span class="tag tag-purple">Progressive-left</span>
+          <span class="tag tag-red">Abolish ICE</span>
+          <span class="tag tag-purple">Medicare for All</span>
+          <span class="tag tag-purple">Wealth tax</span>
+          <span class="tag tag-blue">Grassroots-only</span>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.morgancoghillforillinois.com" target="_blank">🔗 morgancoghillforillinois.com</a></div>
+    </div>
+  </div>
+
+  <table class="compare">
+    <tr><th>Issue</th><th>Schneider (Incumbent)</th><th>Coghill (Challenger)</th></tr>
+    <tr><td>ICE / Immigration</td><td>Reform: body cameras, ID display, use-of-force standards</td><td>Abolish ICE; 3× more immigration judges</td></tr>
+    <tr><td>Healthcare</td><td>Expand ACA/Medicaid; no Medicare for All</td><td>Medicare for All; wealth tax to fund it</td></tr>
+    <tr><td>Iran war</td><td>Voted to end; no more funding</td><td>End immediately; "illegal war"</td></tr>
+    <tr><td>Gaza/Israel</td><td>Strong pro-Israel record; supports right to exist</td><td>End all military aid; calls it genocide</td></tr>
+    <tr><td>Economy</td><td>New Democrat Coalition affordability plan</td><td>2% wealth tax; UPK funded by taxing billionaires</td></tr>
+    <tr><td>Fundraising</td><td>Well-funded incumbent; traditional donors</td><td>100% grassroots; no PAC or lobby money</td></tr>
+    <tr><td>Experience</td><td>6 terms; Ways &amp; Means Committee</td><td>First-time candidate</td></tr>
+  </table>
+</div>
+
+<!-- COUNTY BOARD -->
+<div id="countyboard" class="race-section">
+  <div class="race-title">President of Cook County Board</div>
+  <div class="race-desc">Cook County is the 2nd largest county in the U.S. The Board President oversees a ~$10 billion annual budget, 22,000+ employees, the county jail, courts, the public health system, and 70,000+ acres of Forest Preserves.</div>
+  <div class="candidates-grid">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Toni Preckwinkle <span class="badge badge-inc">INCUMBENT</span></div>
+        <div class="card-role">Cook County Board President (2010–present) · age 79</div>
+      </div>
+      <div class="card-body">
+        <p>Seeking a fifth term — which would tie the record for longest tenure in the office. Former South Side alderperson (4th Ward) and high school history teacher. Also chairs the Cook County Democratic Party.</p>
+        <p><strong>Record:</strong> 15 years of balanced budgets with no county property tax hikes. Erased $600M+ in medical debt. Helped eliminate cash bail in Illinois. Championed guaranteed income programs. County pension fund at 66% funded — better than Chicago's.</p>
+        <p><strong>Attacks on Reilly:</strong> Ties to Trump Tower (donations); voted against expanding Chicago's sanctuary city ordinance in 2021.</p>
+        <div class="tags">
+          <span class="tag tag-purple">Progressive</span>
+          <span class="tag tag-green">No property tax hikes in 15 yrs</span>
+          <span class="tag tag-green">Balanced budgets</span>
+          <span class="tag tag-purple">Cash bail elimination</span>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.tonipreckwinkle.org" target="_blank">🔗 tonipreckwinkle.org</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Brendan Reilly <span class="badge badge-chal">CHALLENGER</span></div>
+        <div class="card-role">Chicago Ald., 42nd Ward (Downtown) · ~19 years · age 54</div>
+      </div>
+      <div class="card-body">
+        <p>Represents the Loop, River North, Streeterville, and Magnificent Mile. Considered Preckwinkle's toughest challenger yet. Running as a pro-business, affordability-focused "change" candidate.</p>
+        <p><strong>Key attack:</strong> A decade-long property tax technology overhaul that cost $120M+ and caused months of late bills in 2025. Also criticizes Preckwinkle's support for ex-State's Atty Kim Foxx and the county's electronic monitoring failures.</p>
+        <p><strong>Defense:</strong> Donated Trump campaign contributions to charity; stood alongside Preckwinkle at anti-Trump "No Kings" rally.</p>
+        <div class="tags">
+          <span class="tag tag-blue">Pro-business</span>
+          <span class="tag tag-orange">Change message</span>
+          <span class="tag tag-blue">Fiscal accountability</span>
+          <span class="tag tag-blue">Moderate Democrat</span>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.brendanreilly.com" target="_blank">🔗 brendanreilly.com</a></div>
+    </div>
+  </div>
+
+  <table class="compare">
+    <tr><th>Issue</th><th>Preckwinkle (Incumbent)</th><th>Reilly (Challenger)</th></tr>
+    <tr><td>Core message</td><td>"Experienced, steady hand"</td><td>"Time for change; accountability"</td></tr>
+    <tr><td>Property taxes</td><td>No county property tax hike in 15 years</td><td>Criticizes tech contract debacle that delayed tax bills</td></tr>
+    <tr><td>Healthcare budget</td><td>$320M reserves for federal cuts; 10% dept. cuts</td><td>Pre-rank services; prioritize ER and trauma care</td></tr>
+    <tr><td>Immigration</td><td>Fought ICE "Operation Midway" in court</td><td>Voted against expanded Welcoming City Ord. in 2021; denies Trump ties</td></tr>
+    <tr><td>Criminal justice</td><td>Led cash bail elimination; equity-focused reforms</td><td>Critical of electronic monitoring failures; questions Foxx-era policies</td></tr>
+    <tr><td>Property tax tech</td><td>Defends upgrade; says system now modernized</td><td>Calls it a $120M+ failure; says earlier vendor switch would have saved money</td></tr>
+  </table>
+</div>
+
+<!-- ASSESSOR -->
+<div id="assessor" class="race-section">
+  <div class="race-title">Cook County Assessor</div>
+  <div class="race-desc">The Assessor appraises Cook County's ~2 million land parcels and reassesses one-third of the county each year to establish property tax burdens. Fritz Kaegi is seeking a third term.</div>
+  <div class="candidates-grid">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Fritz Kaegi <span class="badge badge-inc">INCUMBENT</span></div>
+        <div class="card-role">Cook County Assessor (2018–present)</div>
+      </div>
+      <div class="card-body">
+        <p>Seeking a third term. Came into office in 2018 as a reformer, defeating longtime incumbent Joseph Berrios. Background in investment management. Has worked to modernize the office, reduce assessment disparities between commercial and residential properties, and bring greater transparency to the valuation process. Praised by housing advocates for equity improvements.</p>
+        <div class="tags">
+          <span class="tag tag-green">Reform incumbent</span>
+          <span class="tag tag-blue">Assessment equity</span>
+          <span class="tag tag-blue">Transparency</span>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.kaegi.org" target="_blank">🔗 kaegi.org</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Pat Hynes <span class="badge badge-chal">CHALLENGER</span></div>
+        <div class="card-role">Former Illinois State Senator / Attorney</div>
+      </div>
+      <div class="card-body">
+        <p>Former Illinois State Senator. Running on a change platform, arguing the office needs stronger leadership and improved management of the assessment process. Critical of aspects of Kaegi's tenure, including how the Cook County property tax system has functioned overall — though the Assessor and Treasurer are separate offices.</p>
+        <div class="tags">
+          <span class="tag tag-blue">Former state senator</span>
+          <span class="tag tag-orange">Change candidate</span>
+        </div>
+      </div>
+      <div class="card-footer"><a href="https://www.hynesforcookcounty.com" target="_blank">🔗 hynesforcookcounty.com</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- OTHER -->
+<div id="other" class="race-section">
+  <div class="race-title">Other Races on Your Ballot</div>
+  <div class="race-desc">Additional county and local races, mostly unopposed in the Democratic primary.</div>
+  <div class="candidates-grid">
+    <div class="card">
+      <div class="card-header"><div class="card-name">Monica Gordon</div><div class="card-role">County Clerk — Unopposed</div></div>
+      <div class="card-body"><p>Democratic candidate for Cook County Clerk. Unopposed in the primary.</p><div class="tags"><span class="tag tag-green">Unopposed</span></div></div>
+      <div class="card-footer"><a href="https://www.monicagordonforillinois.com" target="_blank">🔗 monicagordonforillinois.com</a></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-name">Thomas J. Dart <span class="badge badge-inc">INCUMBENT</span></div><div class="card-role">County Sheriff — Unopposed</div></div>
+      <div class="card-body"><p>Longtime Cook County Sheriff, serving since 2006. Unopposed in the Democratic primary.</p><div class="tags"><span class="tag tag-green">Unopposed — long-serving</span></div></div>
+      <div class="card-footer"><a href="https://www.cookcountysheriff.org" target="_blank">🔗 cookcountysheriff.org</a></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-name">Maria Pappas <span class="badge badge-inc">INCUMBENT</span></div><div class="card-role">County Treasurer — Unopposed</div></div>
+      <div class="card-body"><p>Long-serving Cook County Treasurer. Unopposed in the Democratic primary.</p><div class="tags"><span class="tag tag-green">Unopposed</span></div></div>
+      <div class="card-footer"><a href="https://www.cookcountytreasurer.com" target="_blank">🔗 cookcountytreasurer.com</a></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-name">Scott R. Britton</div><div class="card-role">County Commissioner, 14th District — Unopposed</div></div>
+      <div class="card-body"><p>Cook County Commissioner for the 14th District. Unopposed in the Democratic primary.</p><div class="tags"><span class="tag tag-green">Unopposed</span></div></div>
+      <div class="card-footer"><span>No campaign website found</span></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-name">Cameron "Cam" Davis</div><div class="card-role">MWRD Commissioner — Unexpired 2-Year Term (Unopposed)</div></div>
+      <div class="card-body"><p>Running for the unexpired 2-year term seat on the Metropolitan Water Reclamation District board. Long background in Great Lakes and water environmental policy. Unopposed in the Democratic primary.</p><div class="tags"><span class="tag tag-green">Unopposed</span><span class="tag tag-blue">Environmental policy</span></div></div>
+      <div class="card-footer"><span>No independent campaign site</span></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-name">MWRD Commissioners — Full 6-Year Term</div><div class="card-role">Vote for up to 3 of 4 candidates</div></div>
+      <div class="card-body">
+        <p><strong>Eira Lizeth Corral Sepúlveda</strong> — environmental/water policy<br><strong>Precious Brady-Davis</strong> — environmental justice advocate; first transgender person elected to MWRD<br><strong>Beth McElroy Kirkwood</strong> — MWRD infrastructure &amp; operations<br><strong>Sarah Bury</strong> — clean water and reclamation advocate</p>
+        <div class="tags"><span class="tag tag-orange">Vote for ≤ 3</span></div>
+      </div>
+      <div class="card-footer"><span>See each candidate's individual campaign site</span></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-name">State Central Committeeperson, 10th District</div><div class="card-role">Vote for up to 2 of 4 candidates</div></div>
+      <div class="card-body">
+        <p><strong>Thomas Maillard</strong><br><strong>Mary Edly-Allen</strong><br><strong>Tracy Katz Muhl</strong><br><strong>Jennifer Banek</strong></p>
+        <p>Party committee positions; also note Tracy Katz Muhl is running separately for Northfield Township Committeeperson (vote for 1).</p>
+        <div class="tags"><span class="tag tag-orange">Vote for ≤ 2</span><span class="tag tag-blue">Party committee role</span></div>
+      </div>
+      <div class="card-footer"><span>Local party committee positions</span></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-name">Board of Review, 2nd District</div><div class="card-role">Vote for 1: Samantha Steele vs. Elizabeth "Liz" Nicholson</div></div>
+      <div class="card-body"><p>The Board of Review hears property assessment appeals. <strong>Samantha Steele</strong> is the incumbent; <strong>Elizabeth "Liz" Nicholson</strong> is the challenger for this seat.</p><div class="tags"><span class="tag tag-orange">Contested</span></div></div>
+      <div class="card-footer"><span>See local voter guides for details</span></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-name">Judicial Races</div><div class="card-role">Multiple Circuit Court and Appellate Court vacancies</div></div>
+      <div class="card-body">
+        <p>Your ballot includes several judicial races for Circuit Court vacancies (Burke, Cobbs, Coghlan, Hooks, Karkula) and one Appellate Court vacancy (Hoffman). Most are either uncontested or have two candidates. For judicial comparisons, consult the Chicago Bar Association or Alliance of Bar Associations ratings.</p>
+        <div class="tags"><span class="tag tag-blue">See bar association ratings</span></div>
+      </div>
+      <div class="card-footer"><a href="https://www.alliance4justicecook.org" target="_blank">🔗 alliance4justicecook.org</a></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.race-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + id + "'")) {
+      b.classList.add('active');
+    }
+  });
+}
+</script>
+</body>
+</html>
